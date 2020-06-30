@@ -1,21 +1,27 @@
 package com.trackerapp4.models;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-public abstract class Record {
+@DiscriminatorColumn(name = "record_type", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "records")
+public class Record {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int record_id;
 
     @Column
     private String name;
 
-    @Column
-    @ManyToOne
-    private int tracker_id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tracker_id")
+    private Tracker tracker;
 
     public Record() {
     }
+
+
 }

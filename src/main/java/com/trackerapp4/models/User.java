@@ -2,6 +2,7 @@ package com.trackerapp4.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -10,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int user_id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -30,11 +31,14 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @OneToMany(mappedBy = "user")
+    private List<Tracker> trackers;
+
     public User() {
     }
 
     public User(int id, String username, String password, String firstName, String lastName, Date dob, String email) {
-        this.id = id;
+        this.user_id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -53,11 +57,11 @@ public class User {
     }
 
     public int getId() {
-        return id;
+        return user_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.user_id = id;
     }
 
     public String getUsername() {
@@ -113,7 +117,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id &&
+        return user_id == user.user_id &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(firstName, user.firstName) &&
@@ -124,13 +128,13 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, firstName, lastName, dob, email);
+        return Objects.hash(user_id, username, password, firstName, lastName, dob, email);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + user_id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
