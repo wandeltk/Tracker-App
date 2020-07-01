@@ -11,4 +11,5 @@ public interface RecordRepository extends CrudRepository<Record, Integer> {
     Record findById(int id);
     Record save(Record newRecord);
     List<Record> findAll();
+    List<Record> findAllByTrackerId(int id);
 }
