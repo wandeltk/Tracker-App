@@ -10,7 +10,7 @@ public class Tracker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tracker_id;
+    private int id;
 
     @Column
     private String name;
@@ -25,7 +25,7 @@ public class Tracker {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "tracker_id")
+    @OneToMany(mappedBy = "tracker")
     private List<Record> records;
 
     public Tracker() {
@@ -38,18 +38,18 @@ public class Tracker {
     }
 
     public Tracker(int id, String name, String creation_date, TrackerType type) {
-        this.tracker_id = id;
+        this.id = id;
         this.name = name;
         this.creation_date = creation_date;
         this.type = type;
     }
 
     public int getId() {
-        return tracker_id;
+        return id;
     }
 
     public void setId(int id) {
-        this.tracker_id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -81,7 +81,7 @@ public class Tracker {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tracker tracker = (Tracker) o;
-        return tracker_id == tracker.tracker_id &&
+        return id == tracker.id &&
                 Objects.equals(name, tracker.name) &&
                 Objects.equals(creation_date, tracker.creation_date) &&
                 type == tracker.type;
@@ -89,13 +89,13 @@ public class Tracker {
 
     @Override
     public int hashCode() {
-        return Objects.hash(tracker_id, name, creation_date, type);
+        return Objects.hash(id, name, creation_date, type);
     }
 
     @Override
     public String toString() {
         return "Tracker{" +
-                "id=" + tracker_id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", creation_date='" + creation_date + '\'' +
                 ", type=" + type +

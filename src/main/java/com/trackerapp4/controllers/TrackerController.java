@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/trackers")
+@RestController
+@RequestMapping("/trackers")
 public class TrackerController {
     private TrackerService trackerService;
 
@@ -41,7 +42,7 @@ public class TrackerController {
         return trackerService.findAllByUserId(id);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/type", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Tracker> findTrackerByType(@RequestParam(value = "type") TrackerType type){
         return trackerService.findByType(type);
     }

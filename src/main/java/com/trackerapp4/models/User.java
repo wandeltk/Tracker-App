@@ -11,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private int id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -38,7 +38,7 @@ public class User {
     }
 
     public User(int id, String username, String password, String firstName, String lastName, Date dob, String email) {
-        this.user_id = id;
+        this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -57,11 +57,11 @@ public class User {
     }
 
     public int getId() {
-        return user_id;
+        return id;
     }
 
     public void setId(int id) {
-        this.user_id = id;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -117,7 +117,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return user_id == user.user_id &&
+        return id == user.id &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(firstName, user.firstName) &&
@@ -128,13 +128,13 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, username, password, firstName, lastName, dob, email);
+        return Objects.hash(id, username, password, firstName, lastName, dob, email);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + user_id +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
