@@ -1,9 +1,7 @@
 package com.trackerapp4.controllers;
 
-import com.trackerapp4.models.Record;
 import com.trackerapp4.models.Tracker;
 import com.trackerapp4.models.TrackerType;
-import com.trackerapp4.services.RecordService;
 import com.trackerapp4.services.TrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
