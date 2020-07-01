@@ -16,12 +16,11 @@ public class Record {
     @Column
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "tracker_id")
     private Tracker tracker;
 
     public Record() {
     }
-
 
 }
