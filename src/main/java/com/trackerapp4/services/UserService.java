@@ -17,15 +17,19 @@ public class UserService {
         this.userRepository = repo;
     }
 
-    private List<User> findAll() {
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    private User save(User newUser) {
+    public User findById(int id) {
+        return userRepository.findById(id);
+    }
+
+    public User save(User newUser) {
         return userRepository.save(newUser);
     }
 
-    private User findUserById(int userId) {
+    public User findUserById(int userId) {
         return userRepository.findById(userId);
     }
 

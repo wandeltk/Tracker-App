@@ -18,22 +18,26 @@ public class TrackerService {
         this.trackerRepository = repo;
     }
 
-    private List<Tracker> findAll() {
+    public List<Tracker> findAll() {
         return trackerRepository.findAll();
     }
 
-    private Tracker save(Tracker newTracker) {
+    public Tracker findById(int id) {
+        return trackerRepository.findById(id);
+    }
+
+    public Tracker save(Tracker newTracker) {
         return trackerRepository.save(newTracker);
     }
 
-    private Tracker findTrackerById(int trackerId) {
+    public Tracker findTrackerById(int trackerId) {
         return trackerRepository.findById(trackerId);
     }
 
-    private List<Tracker> findAllByUserId(int id){
+    public List<Tracker> findAllByUserId(int id){
         return trackerRepository.findAllByUserId(id);
     }
-    private List<Tracker> findByType(TrackerType type){
+    public List<Tracker> findByType(TrackerType type){
         return trackerRepository.findByType(type);
     }
 }
