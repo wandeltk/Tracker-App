@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("BOOLEAN")
 public class BooleanRecord extends Record {
 
-    private boolean input;
+    private boolean boolean_input;
 
     public BooleanRecord() {
     }

@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("TEXT")
 public class TextRecord extends Record {
 
-    private String input;
+    private String text_input;
 
     public TextRecord() {
     }

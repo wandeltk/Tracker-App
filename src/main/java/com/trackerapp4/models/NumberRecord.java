@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("NUMBER")
 public class NumberRecord extends Record {
 
-    private int input;
+    private int number_input;
 
     public NumberRecord() {
     }
